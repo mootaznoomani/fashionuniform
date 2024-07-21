@@ -1,45 +1,24 @@
+// Commande model definition
 module.exports = (sequelize, DataTypes) => {
-    return sequelize.define('Commande', {
-      idCommande: {
-        type: DataTypes.INTEGER,
-        autoIncrement: true,
-        primaryKey: true
-      },
-      Email: {
-        type: DataTypes.STRING(50),
-        allowNull: true
-      },
-      Numero: {
-        type: DataTypes.INTEGER,
-        allowNull: true
-      },
-      Name: {
-        type: DataTypes.STRING(50),
-        allowNull: true
-      },
-      Lastname: {
-        type: DataTypes.STRING(50),
-        allowNull: true
-      },
-      Adresse: {
-        type: DataTypes.TEXT,
-        allowNull: true
-      },
-      Ville: {
-        type: DataTypes.STRING(50),
-        allowNull: true
-      },
-      Information: {
-        type: DataTypes.TEXT,
-        allowNull: true
-      },
-      Taille: {
-        type: DataTypes.STRING(45),
-        allowNull: true
-      }
-    }, {
-      tableName: 'Commande',
-      timestamps: false
-    });
-  };
-  
+  return sequelize.define('Commande', {
+    idCommande: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true
+    },
+    Email: DataTypes.STRING,
+    Numero: DataTypes.INTEGER,
+    Name: DataTypes.STRING,
+    Lastname: DataTypes.STRING,
+    Adresse: DataTypes.TEXT,
+    Ville: DataTypes.STRING,
+    Information: DataTypes.TEXT,
+    Taille: DataTypes.STRING,
+    Products: { // Store products as JSON
+      type: DataTypes.JSON
+    }
+  }, {
+    tableName: 'Commande',
+    timestamps: false
+  });
+};
