@@ -21,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
       {
         unique: true,
         fields: ['Commande_idCommande', 'Product_idProduct'],
-        name: 'unique_cmd_prod' // Use a shorter name here
+        name: 'unique_cmd_prod' // Shortened name for the unique constraint
       }
     ]
   });
