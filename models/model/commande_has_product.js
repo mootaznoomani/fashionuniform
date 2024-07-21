@@ -2,6 +2,7 @@ module.exports = (sequelize, DataTypes) => {
   return sequelize.define('Commande_has_Product', {
     Commande_idCommande: {
       type: DataTypes.INTEGER,
+      primaryKey: true,
       references: {
         model: 'Commande',
         key: 'idCommande'
@@ -9,6 +10,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     Product_idProduct: {
       type: DataTypes.INTEGER,
+      primaryKey: true,
       references: {
         model: 'Product',
         key: 'idProduct'
@@ -21,7 +23,7 @@ module.exports = (sequelize, DataTypes) => {
       {
         unique: true,
         fields: ['Commande_idCommande', 'Product_idProduct'],
-        name: 'unique_cmd_prod' // Shortened name for the unique constraint
+        name: 'unique_commande_product'
       }
     ]
   });
