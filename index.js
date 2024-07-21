@@ -27,7 +27,7 @@ app.use("/api/commande", commandeRouter);
 // app.use("/api/cart", cartRouter);
 // app.use("/api/wishList", wishListRouter);
 
-db.sequelize.sync()
+db.sequelize.sync({ alter: true }) // Use 'alter: true' to apply changes to the existing tables
   .then(() => {
     app.listen(PORT, () => {
       console.log(`Server is running on port ${PORT}`);
